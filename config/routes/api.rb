@@ -3,6 +3,11 @@
 # Routes for V1 of API
 namespace :api do
     namespace :v1 do
+        scope :users, module: :users do
+            # Register new User
+            post '/', to: 'registrations#create', as: :user_registration
+        end
+
         resources :books
     end
 end

@@ -1,10 +1,11 @@
-class Api::V1::BooksController < ApplicationController
+class Api::V1::BooksController < ApiController
     before_action :set_book, only: %i[ show edit update destroy ]
 
     # GET /books or /books.json
     def index
         @books = Book.all
-        # Render json Version of Books
+
+        # Render json Version of Books - redirect other formats to home page
         render json: @books
     end
 
