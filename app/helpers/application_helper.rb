@@ -1,8 +1,12 @@
 module ApplicationHelper
 
+    # Helper function to check for admin role
     def is_admin?
-        unless current_user&.admin?
-            redirect_to root_path, alert: 'You are not authorized to access this page.'
+        return if current_user&.admin?
+
+        respond_to do |format|
+            format.json { render json: { error: 'You are not authorized to access this page.' }, status: :unauthorized }
+            format.html { redirect_to root_path, notice: 'You are not authorized to access this page.' }
         end
     end
 end
