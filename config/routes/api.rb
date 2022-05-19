@@ -8,7 +8,13 @@ namespace :api do
             post '/', to: 'registrations#create', as: :user_registration
         end
 
+        # Api Routes
         resources :books
+
+        # Android Routes
+        namespace :android do 
+            resources :books
+        end
     end
 end
 
