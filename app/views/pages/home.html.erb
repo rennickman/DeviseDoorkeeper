@@ -16,6 +16,10 @@
 <p>You can test the API with the following credentials</p>
 
 <div class="container">
+    <!-- Application Info - Displayed as Json -->
+    <%= @application.as_json %>
+
+    <!-- List Of Links -->
     <ul>
         <li><%= link_to "Web Books", books_path %></li>
         <li>API V1 Books</li>
